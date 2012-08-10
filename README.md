@@ -49,7 +49,7 @@ Simply insert RectangleSelection().
 
 ####display
 
-* (function) Executes when 
+* (function) Executes when the element for the rectangle selection is added to the page (it does not mean it is visible).
 
 #####Signature:
 
@@ -57,7 +57,7 @@ Simply insert RectangleSelection().
 
 ####Selection
 
-* (function) Executes when
+* (function) Executes when the user starts dragging the rectangle selection to resize it, to select the elements.
 
 #####Signature:
 
@@ -65,7 +65,7 @@ Simply insert RectangleSelection().
 
 ####Selected
 
-* (function) Executes when
+* (function) Executes when a element is selected.
 
 #####Signature:
 
@@ -73,7 +73,7 @@ Simply insert RectangleSelection().
 
 ####Deselected
 
-* (function) Executes when
+* (function) Executes when a element is unselected.
 
 #####Signature:
 
