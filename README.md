@@ -18,6 +18,14 @@ Simply insert RectangleSelection().
 
 [Events](http://mootools.net/docs/core/Class/Class.Extras#Events), [Options](http://mootools.net/docs/core/Class/Class.Extras#Options)
 
+###Mootools More:
+
+[Element.Measure](http://mootools.net/docs/more/Element/Element.Measure)
+
+###Extrats:
+
+[Element.collide](http://mootools.net/forge/p/elcollide)
+
 ###Arguments:
 
 1. elements - (string) A CSS selector, (elements), (collection) or (array) An enumerable list of elements
