@@ -47,13 +47,30 @@ Simply insert RectangleSelection().
 
     onAttach(thisSelectionRectangleEl)
 
+#####Arguments:
+
+* thisSelectionRectangleEl - (element) This is the element that is use for selecting the other elements in the document.
+
+####detach
+
+* (function) Executes when the rectangle selection element is removed from the document.
+
+#####Signature:
+
+    onDetach()
+
 ####display
 
-* (function) Executes when the element for the rectangle selection is added to the page (it does not mean it is visible).
+* (function) Executes when the element for the rectangle selection appears and when the user starts selecting new elements.
 
 #####Signature:
 
     onDisplay(thisPoy, thisPox)
+
+#####Arguments:
+
+* thisPoy - (int) This is the "y" starting position of the rectangle selection. Also call the point of origin.
+* thisPox - (int) This is the "x" starting position of the rectangle selection. Also call the point of origin.
 
 ####Selection
 
@@ -63,13 +80,48 @@ Simply insert RectangleSelection().
 
     onSelection(thisMy, thisMx, thisHeight, thisWidth, thisPtop, thisPleft)
 
+#####Arguments:
+
+* thisMy - (int) This is the "y" position of the mouse.
+* thisMx - (int) This is the "x" position of the mouse.
+* thisHeight - (int) This is the height of the distance between the "x" axis of the point of origin and the new position of the mouse by "y".
+* thisWidth - (int) This is the width of the distance between the "y" axis of the point of origin and the new position of the mouse by "x".
+* thisPtop - (int) This is the distance between the rectangle selection and the top of the window (in CSS it would be the "top").
+* thisPleft - (int) This is the distance between the rectangle selection and the left of the window (in CSS it would be the "left").
+
 ####Selected
 
-* (function) Executes when a element is selected.
+* (function) Executes when the user stops selecting with the rectangle selection and it fades out.
 
 #####Signature:
 
     onSelected()
+
+####leave
+
+* (function) Executes when the rectangle selection unselects some elements.
+
+#####Signature:
+
+    onLeave(thisSelectionRectangleEl, thisOvered)
+
+#####Arguments:
+
+* thisSelectionRectangleEl - (element) Rectangle selection element.
+* thisOvered - (element) Elements used to be selected.
+
+####enter
+
+* (function) Executes when new elements are selected.
+
+#####Signature:
+
+    onEnter(thisSelectionRectangleEl, overed)
+
+#####Arguments:
+
+* thisSelectionRectangleEl - (element) Rectangle selection element.
+* overed - (elements) Elements selected.
 
 ####Deselected
 

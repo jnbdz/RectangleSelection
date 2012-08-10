@@ -24,9 +24,12 @@ var RectangleSelection = new Class({
     
     options: {/*
         onAttach: function(thisSelectionRectangleEl){},
+        onDetach: function(){},
         onDisplay: function(thisPoy, thisPox){},
         onSelection: function(thisMy, thisMx, thisHeight, thisWidth, thisPtop, thisPleft){},
         onSelected: function(thisSelectionRectangleEl){},
+        onLeave: function(thisSelectionRectangleEl, thisOvered){},
+        onEnter: function(thisSelectionRectangleEl, overed){},
         onDeselecte: function(){},
         */
         container: null,
@@ -134,7 +137,7 @@ var RectangleSelection = new Class({
         this.element = this.selectionRectangleEl;
         
         this.limits = this.calculateLimit();
-        
+
         this.fireEvent('display', [this.poy, this.pox]);
     
     },
@@ -170,7 +173,6 @@ var RectangleSelection = new Class({
             mx = mx + this.toScrollToX - this.toRemoveX;
             
         }
-        
         
         mx = (mx >= this.limits['left']) ? mx : this.limits['left'];
         mx = (mx <= this.limits['right']) ? mx : this.limits['right'];
