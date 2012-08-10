@@ -1,0 +1,531 @@
+<!DOCTYPE HtMl>
+<html lang="en">
+<head>
+        <meta charset="UTF-8"/>
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><![endif]-->
+        <title>RectangleSelection</title>
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>   
+<style>
+body {
+        overflow: auto !important;
+	font-family: "Arial";
+	font-size: 0.8em;
+	margin-top: 0px;
+	margin-bottom: 30px;
+	padding: 10px;
+}
+a, a:link {
+	color:#000;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.selection-rectangle {
+    display:none;
+    position:absolute;
+    border:1px solid #000;
+    background-color: #ccc;
+    height: 1px;
+    width:1px;
+    opacity:0.5;
+    zoom: 1;
+    filter: alpha(opacity=50);
+    z-index:99999;
+    cursor:default;
+}
+#items div.selected {
+	border: 1px solid red;
+	border-bottom: 2px solid red;
+	border-right: 2px solid red;
+}
+#items {
+    float: left;
+    margin-bottom: 10px;
+    border: 1px solid #F9F9F9;
+}
+
+.item {
+    background-color: #FFF;
+    background-position: left top;
+    background-repeat: no-repeat;
+    border: 1px solid #EEE;
+    border-bottom: 2px solid #DDD;
+    border-right: 2px solid #DDD; 
+    float: left;
+    height: 175px;
+    margin: 10px;
+    position: relative;
+    width: 150px;
+}
+    .item span {
+	cusor: default;
+        bottom: 0;
+	background-color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+
+.item .price, .item .id {
+	display:none;
+}
+.product-1 {
+	background-image:url(assets/img/s1.jpeg);
+}
+
+.product-2 {
+	background-image:url(assets/img/s2.jpeg);
+}
+
+.product-3 {
+	background-image:url(assets/img/s3.jpeg);
+}
+
+.product-4 {
+	background-image:url(assets/img/s4.jpeg);
+}
+
+.product-5 {
+	background-image:url(assets/img/s5.jpeg);
+}
+
+.product-6 {
+	background-image:url(assets/img/s6.jpeg);
+}
+</style>
+</head>
+<body>
+<header>
+        <h1>RectangleSelection</h1>
+</header>
+<section id="main" role="main">
+<div id="items">
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+    <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+    <div class="item product-1">
+        <span>Shirt 1 (10$)</span>
+        <span class="price">10</span>
+        <span class="id">1</span>
+    </div>
+    <div class="item product-2">
+        <span>Shirt 2 (20$)</span>
+        <span class="price">20</span>
+        <span class="id">2</span>
+    </div>
+    <div class="item product-3">
+        <span>Shirt 3 (30$)</span>
+        <span class="price">30</span>
+        <span class="id">3</span>
+    </div>
+    <div class="item product-4">
+        <span>Shirt 4 (40$)</span>
+        <span class="price">40</span>
+        <span class="id">4</span>
+    </div>
+    <div class="item product-5">
+        <span>Shirt 5 (50$)</span>
+        <span class="price">50</span>
+        <span class="id">5</span>
+    </div>
+    <div class="item product-6">
+        <span>Shirt 6 (60$)</span>
+        <span class="price">60</span>
+        <span class="id">6</span>
+    </div>
+</div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
+<script src="assets/js/mootools-more-1.4.0.1.js"></script>
+<script src="../Source/RectangleSelection.js"></script>
+<script>
+window.addEvent('domready', function() {
+
+	new RectangleSelection('.item', {
+					'container': 'items',
+					'onEnter': function(el, sel){
+							$$('.item').removeClass('selected');
+							sel.addClass('selected');
+						}
+					});
+});
+</script>
+</body>
+</html>
