@@ -12,7 +12,6 @@ requires:
  - core/1.4
  - More:/Element.Measure
  - Element.Collide/0.5
- - autoScroll/0.1
 
 provides:
   - RectangleSelection
@@ -323,10 +322,6 @@ var RectangleSelection = new Class({
         coors['left'] += borderLeft;
         coors['bottom'] -= selRectEl.getStyle('border-bottom').toInt() + borderTop;
         coors['right'] -= selRectEl.getStyle('border-right').toInt() + borderLeft;
-        
-        //console.log(.getDimensions());
-        
-        /*Use getDimensions from Element.Measure*/
         
         return coors;
     }
