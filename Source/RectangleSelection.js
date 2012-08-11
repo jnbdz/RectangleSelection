@@ -28,13 +28,14 @@ var RectangleSelection = new Class({
         onDisplay: function(thisPoy, thisPox){},
         onSelection: function(thisMy, thisMx, thisHeight, thisWidth, thisPtop, thisPleft){},
         onSelected: function(thisSelectionRectangleEl){},
-        onLeave: function(thisSelectionRectangleEl, thisOvered){},
-        onEnter: function(thisSelectionRectangleEl, overed){},
+        onLeave: function(thisSelectionRectangleEl, thisSelectables, thisOvered){},
+        onEnter: function(thisSelectionRectangleEl, thisSelectables, overed){},
         onDeselect: function(){},
         */
         container: null,
         className: 'selection-rectangle',
-        fadeOut: true
+        fadeOut: true,
+        selectionMethod: 'collide'
     },
 
     initialize: function(selectables, options) {
@@ -297,12 +298,12 @@ var RectangleSelection = new Class({
     select: function(){
             
 			var overed = this.selectables.filter(function(el, i){
-                return el.collide(this.selectionRectangleEl);
+                return el[this.options.selectionMethod](this.selectionRectangleEl);
 			}, this);
 
 			if (this.overed != overed){
-				if (this.overed) this.fireEvent('leave', [this.selectionRectangleEl, this.overed]);
-				if (overed) this.fireEvent('enter', [this.selectionRectangleEl, overed]);
+				if (this.overed) this.fireEvent('leave', [this.selectionRectangleEl, this.selectables, this.overed]);
+				if (overed) this.fireEvent('enter', [this.selectionRectangleEl, this.selectables, overed]);
 				this.overed = overed;
 			}
 

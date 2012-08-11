@@ -36,6 +36,7 @@ Simply insert RectangleSelection().
 * container - (string) The default is null. This is the element that the RectangleSelection does not get out of.
 * className - (string) The default is 'selection-rectangle'. The name of the class used by the rectangle selection element.
 * fadeOut - (bool) The default is true. This indicates if the RectangleSelection should fade out or just disappear.
+* selectionMethod - (string) The default is ['collide'](http://mootools.net/forge/p/elCollide). This is the method called for selecting the elements within the rectangle selection. You can also use any other methods you want, for example [Element.inside](http://mootools.net/forge/p/elinside).
 
 ###Events:
 
@@ -103,11 +104,12 @@ Simply insert RectangleSelection().
 
 #####Signature:
 
-    onLeave(thisSelectionRectangleEl, thisOvered)
+    onLeave(thisSelectionRectangleEl, thisSelectables, thisOvered)
 
 #####Arguments:
 
 * thisSelectionRectangleEl - (element) Rectangle selection element.
+* thisSelectables - (elements) All the elements in the container.
 * thisOvered - (element) Elements used to be selected.
 
 ####enter
@@ -116,11 +118,12 @@ Simply insert RectangleSelection().
 
 #####Signature:
 
-    onEnter(thisSelectionRectangleEl, overed)
+    onEnter(thisSelectionRectangleEl, thisSelectables, overed)
 
 #####Arguments:
 
 * thisSelectionRectangleEl - (element) Rectangle selection element.
+* thisSelectables - (elements) All the elements in the container.
 * overed - (elements) Elements selected.
 
 ####deselect

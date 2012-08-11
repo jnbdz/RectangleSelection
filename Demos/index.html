@@ -521,14 +521,15 @@ window.addEvent('domready', function() {
 
 	new RectangleSelection('.item', {
 					'container': 'items',
-					'onEnter': function(el, sel){
-							$$('.item').removeClass('selected');
+					'onEnter': function(el, els, sel){
+							els.removeClass('selected');
 							sel.addClass('selected');
 						},
                     'onDeselect': function(els) {
                             els.removeClass('selected');
                         }
 					});
+
 });
 </script>
 </body>
