@@ -34,7 +34,7 @@ Simply insert RectangleSelection().
 ###Options:
 
 * container - (string) The default is null. This is the element that the RectangleSelection does not get out of.
-* className - (string) 
+* className - (string) The default is 'selection-rectangle'. The name of the class used by the rectangle selection element.
 * fadeOut - (bool) The default is true. This indicates if the RectangleSelection should fade out or just disappear.
 
 ###Events:
@@ -99,7 +99,7 @@ Simply insert RectangleSelection().
 
 ####leave
 
-* (function) Executes when the rectangle selection unselects some elements.
+* (function) Executes when the rectangle selection deselects some elements.
 
 #####Signature:
 
@@ -123,13 +123,17 @@ Simply insert RectangleSelection().
 * thisSelectionRectangleEl - (element) Rectangle selection element.
 * overed - (elements) Elements selected.
 
-####Deselected
+####deselect
 
-* (function) Executes when a element is unselected.
+* (function) Executes when a element is deselected.
 
 #####Signature:
 
-    onDeselected()
+    onDeselect(thisSelectables)
+
+#####Arguments:
+
+* thisSelectables - (elements) Elements that used to be selected.
 
 ###Methods:
 
@@ -183,19 +187,19 @@ Simply insert RectangleSelection().
 
 ####select
 
-* (function) Executes when the rectangle selection selects or unselects elements.
+* (function) Executes when the rectangle selection selects or deselects elements.
 
 #####Signature:
 
     select()
 
-####deselecte
+####deselect
 
 * (function) This is for the removing all selection of any elements, previously selected.
 
 #####Signature:
 
-    deselecte(event)
+    deselect()
 
 ####calculateLimit
 

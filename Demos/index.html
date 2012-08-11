@@ -524,7 +524,10 @@ window.addEvent('domready', function() {
 					'onEnter': function(el, sel){
 							$$('.item').removeClass('selected');
 							sel.addClass('selected');
-						}
+						},
+                    'onDeselect': function(els) {
+                            els.removeClass('selected');
+                        }
 					});
 });
 </script>

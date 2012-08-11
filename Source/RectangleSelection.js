@@ -30,7 +30,7 @@ var RectangleSelection = new Class({
         onSelected: function(thisSelectionRectangleEl){},
         onLeave: function(thisSelectionRectangleEl, thisOvered){},
         onEnter: function(thisSelectionRectangleEl, overed){},
-        onDeselecte: function(){},
+        onDeselect: function(){},
         */
         container: null,
         className: 'selection-rectangle',
@@ -52,7 +52,7 @@ var RectangleSelection = new Class({
                 drag: this.drag.bind(this),
                 stop: this.stop.bind(this),
                 select: this.select.bind(this),
-                deselecte: this.deselecte.bind(this)
+                deselect: this.deselect.bind(this)
         };
         
         this.attach();
@@ -108,7 +108,7 @@ var RectangleSelection = new Class({
     },
 
     start: function(e) {
-        this.deselecte();
+        this.deselect();
         
         var target = document.id(e.target);
         if (!target.match(this.container) && !target.match(this.selectionRectangleEl)) return;
@@ -308,9 +308,8 @@ var RectangleSelection = new Class({
 
     },
     
-    deselecte: function(e){
-            this.selectables.removeClass('selected');
-            this.fireEvent('deselecte', [this.selectables]);
+    deselect: function(){
+            this.fireEvent('deselect', [this.selectables]);
     },
     
     calculateLimit: function(){
